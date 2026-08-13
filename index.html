@@ -3,46 +3,210 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Chenxy 的个人博客，记录学习、生活与思考。">
-  <title>Chenxy 的博客</title>
+  <meta name="description" content="Chenxy 的个人作品集与博客：项目图文、视频作品与日常分享。">
+  <title>Chenxy | 作品集与博客</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="site-title">Chenxy 的博客</h1>
-      <p class="site-desc">记录学习、生活与思考</p>
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="#home">Chenxy</a>
+      <div class="nav-links">
+        <a href="#works">作品</a>
+        <a href="#videos">视频</a>
+        <a href="#blog">博客</a>
+        <a href="#contact">联系</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home" class="hero">
+    <div class="container hero-inner">
+      <div class="avatar">C</div>
+      <h1 class="hero-title">你好，我是 Chenxy</h1>
+      <p class="hero-sub">开发者 · 内容创作者 · 保持好奇的终身学习者</p>
+      <p class="hero-desc">这里是我的作品集与博客：用图文记录项目，用视频分享经验，也留一点空间给生活。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#works">查看作品</a>
+        <a class="btn btn-ghost" href="#contact">联系我</a>
+      </div>
+      <div class="hero-social">
+        <a class="social-pill" href="https://github.com/Chenxy-23" target="_blank" rel="noopener">🐙 GitHub</a>
+        <a class="social-pill" href="https://space.bilibili.com/" target="_blank" rel="noopener">🎬 Bilibili</a>
+        <a class="social-pill" href="mailto:1920545756@qq.com">✉️ 邮箱</a>
+      </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="card about">
-      <h2>关于我</h2>
-      <p>你好，我是 Chenxy，欢迎来到我的个人博客。这里会不定期分享我在编程、学习路上的心得，以及生活中的一些碎碎念。</p>
-      <p>GitHub：<a href="https://github.com/Chenxy-23">@Chenxy-23</a></p>
+    <!-- ============ 作品集 ============ -->
+    <section id="works" class="section">
+      <h2 class="section-title">作品集 <span class="section-sub">Projects</span></h2>
+      <div class="work-grid">
+
+        <article class="card work">
+          <!-- 替换封面图片：把下面这行注释去掉，改成你的图片路径 -->
+          <!-- <img class="work-media" src="assets/project-1.png" alt="个人博客网站截图"> -->
+          <div class="work-media ph-blue">
+            <span class="ph-emoji">🖥️</span>
+            <span class="ph-text">项目封面 · 替换为你的图片</span>
+          </div>
+          <div class="work-body">
+            <h3>个人博客网站</h3>
+            <p>基于 GitHub Pages 搭建的个人作品集与博客，你现在看到的这个页面本身就是一件作品。</p>
+            <div class="tags">
+              <span>HTML</span><span>CSS</span><span>GitHub Pages</span>
+            </div>
+            <a class="work-link" href="https://chenxy-23.github.io/" target="_blank" rel="noopener">查看项目 →</a>
+          </div>
+        </article>
+
+        <article class="card work">
+          <!-- <img class="work-media" src="assets/project-2.png" alt="项目二截图"> -->
+          <div class="work-media ph-green">
+            <span class="ph-emoji">🚀</span>
+            <span class="ph-text">项目封面 · 替换为你的图片</span>
+          </div>
+          <div class="work-body">
+            <h3>你的项目名</h3>
+            <p>用一两句话介绍这个项目：解决什么问题、你做了什么、有什么亮点。</p>
+            <div class="tags">
+              <span>JavaScript</span><span>Python</span><span>API</span>
+            </div>
+            <a class="work-link" href="#" target="_blank" rel="noopener">查看项目 →</a>
+          </div>
+        </article>
+
+        <article class="card work">
+          <!-- <img class="work-media" src="assets/project-3.png" alt="项目三截图"> -->
+          <div class="work-media ph-orange">
+            <span class="ph-emoji">🎨</span>
+            <span class="ph-text">项目封面 · 替换为你的图片</span>
+          </div>
+          <div class="work-body">
+            <h3>你的项目名</h3>
+            <p>用一两句话介绍这个项目：它的背景、你承担的角色，以及最终成果。</p>
+            <div class="tags">
+              <span>UI</span><span>React</span><span>部署</span>
+            </div>
+            <a class="work-link" href="#" target="_blank" rel="noopener">查看项目 →</a>
+          </div>
+        </article>
+
+      </div>
     </section>
 
-    <section class="posts">
-      <h2 class="section-title">最新文章</h2>
+    <!-- ============ 视频作品 ============ -->
+    <section id="videos" class="section">
+      <h2 class="section-title">视频作品 <span class="section-sub">Videos</span></h2>
+      <div class="video-grid">
 
-      <article class="card post">
-        <h3 class="post-title"><a href="posts/hello-world.html">你好，世界</a></h3>
-        <time class="post-date" datetime="2026-08-12">2026-08-12</time>
-        <p class="post-excerpt">这是我的第一篇博客，也是这个站点开始运转的日子。聊聊为什么搭建博客，以及接下来打算写些什么。</p>
-      </article>
+        <article class="card video-card">
+          <!-- 替换方式一：B 站嵌入
+          <iframe class="video-embed" src="https://player.bilibili.com/player.html?bvid=BV1xxxxxxxxx" scrolling="no" border="0" frameborder="no" allowfullscreen="true"></iframe>
+          -->
+          <!-- 替换方式二：YouTube 嵌入
+          <iframe class="video-embed" src="https://www.youtube.com/embed/你的视频ID" title="视频标题" allowfullscreen></iframe>
+          -->
+          <!-- 替换方式三：本地视频
+          <video class="video-embed" src="videos/demo.mp4" controls preload="metadata"></video>
+          -->
+          <div class="video-thumb ph-video">
+            <span class="play-btn">▶</span>
+            <span class="ph-text">视频封面 · 可嵌入 B 站 / YouTube / 本地 mp4</span>
+          </div>
+          <div class="work-body">
+            <h3>视频作品占位 1</h3>
+            <p>替换成你的视频标题与简介，把上面的注释行改成真实代码即可播放。</p>
+            <span class="tag-platform">🎬 Bilibili</span>
+          </div>
+        </article>
 
-      <article class="card post">
-        <h3 class="post-title"><a href="#">GitHub Pages 快速入门</a></h3>
-        <time class="post-date" datetime="2026-08-12">2026-08-12</time>
-        <p class="post-excerpt">只需一个仓库、一个 HTML 文件，就能拥有属于自己的个人网站。示例文章，占位待完善。</p>
-      </article>
+        <article class="card video-card">
+          <!-- <iframe class="video-embed" src="https://player.bilibili.com/player.html?bvid=BV1yyyyyyyyy" scrolling="no" border="0" frameborder="no" allowfullscreen="true"></iframe> -->
+          <div class="video-thumb ph-video">
+            <span class="play-btn">▶</span>
+            <span class="ph-text">视频封面 · 可嵌入 B 站 / YouTube / 本地 mp4</span>
+          </div>
+          <div class="work-body">
+            <h3>视频作品占位 2</h3>
+            <p>替换成你的视频标题与简介，B 站、YouTube 或上传到 videos/ 目录的本地文件都支持。</p>
+            <span class="tag-platform">📺 YouTube</span>
+          </div>
+        </article>
 
-      <article class="card post">
-        <h3 class="post-title"><a href="#">我的学习路线</a></h3>
-        <time class="post-date" datetime="2026-08-12">2026-08-12</time>
-        <p class="post-excerpt">整理一下最近在学的东西和踩过的坑。示例文章，占位待完善。</p>
-      </article>
+      </div>
+    </section>
+
+    <!-- ============ 博客 ============ -->
+    <section id="blog" class="section">
+      <h2 class="section-title">博客文章 <span class="section-sub">Blog</span></h2>
+      <div class="post-list">
+
+        <article class="card post">
+          <div class="post-body">
+            <time class="post-date" datetime="2026-08-12">2026-08-12</time>
+            <h3 class="post-title"><a href="posts/hello-world.html">你好，世界</a></h3>
+            <p class="post-excerpt">这是我的第一篇博客，也是这个站点开始运转的日子。聊聊为什么搭建博客，以及接下来打算写些什么。</p>
+          </div>
+        </article>
+
+        <article class="card post">
+          <div class="post-body">
+            <time class="post-date" datetime="2026-08-12">2026-08-12</time>
+            <h3 class="post-title"><a href="#">GitHub Pages 快速入门</a></h3>
+            <p class="post-excerpt">只需一个仓库、一个 HTML 文件，就能拥有属于自己的个人网站。示例文章，占位待完善。</p>
+          </div>
+        </article>
+
+        <article class="card post">
+          <div class="post-body">
+            <time class="post-date" datetime="2026-08-12">2026-08-12</time>
+            <h3 class="post-title"><a href="#">我的学习路线</a></h3>
+            <p class="post-excerpt">整理一下最近在学的东西和踩过的坑。示例文章，占位待完善。</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ 社交媒体 / 联系 ============ -->
+    <section id="contact" class="section">
+      <h2 class="section-title">社交媒体 / 联系我 <span class="section-sub">Contact</span></h2>
+      <p class="section-desc">想交流合作，或者只是打个招呼？欢迎通过以下方式找到我：</p>
+      <div class="contact-grid">
+        <a class="contact-card" href="https://github.com/Chenxy-23" target="_blank" rel="noopener">
+          <span class="contact-icon">🐙</span>
+          <span class="contact-name">GitHub</span>
+          <span class="contact-value">@Chenxy-23</span>
+        </a>
+        <a class="contact-card" href="https://space.bilibili.com/" target="_blank" rel="noopener">
+          <span class="contact-icon">🎬</span>
+          <span class="contact-name">Bilibili</span>
+          <span class="contact-value">替换成你的 UID</span>
+        </a>
+        <a class="contact-card" href="#" target="_blank" rel="noopener">
+          <span class="contact-icon">📱</span>
+          <span class="contact-name">微博</span>
+          <span class="contact-value">替换成你的主页</span>
+        </a>
+        <a class="contact-card" href="#" target="_blank" rel="noopener">
+          <span class="contact-icon">📕</span>
+          <span class="contact-name">小红书</span>
+          <span class="contact-value">替换成你的主页</span>
+        </a>
+        <a class="contact-card" href="mailto:1920545756@qq.com">
+          <span class="contact-icon">✉️</span>
+          <span class="contact-name">邮箱</span>
+          <span class="contact-value">1920545756@qq.com</span>
+        </a>
+        <a class="contact-card" href="#">
+          <span class="contact-icon">💬</span>
+          <span class="contact-name">微信</span>
+          <span class="contact-value">替换成你的微信号</span>
+        </a>
+      </div>
     </section>
   </main>
 
