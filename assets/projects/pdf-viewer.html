@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>策划书在线预览</title>
+  <title>三创赛 · 商务大数据分析实战赛 策划书 - Chenxy</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { height: 100%; }
@@ -12,8 +12,8 @@
         "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       display: flex;
       flex-direction: column;
-      background: #e9e4ec;
-      color: #241332;
+      background: #f3ede4;
+      color: #3e4038;
     }
 
     /* ===== 顶部工具栏 ===== */
@@ -23,11 +23,12 @@
       align-items: center;
       gap: 8px;
       padding: 8px 12px;
-      background: linear-gradient(135deg, #241332, #3b0f4f);
-      color: #fff;
+      background: #fffcf8;
+      border-bottom: 1px solid #e8e0d4;
+      color: #3e4038;
       font-size: 0.9rem;
       flex-wrap: wrap;
-      box-shadow: 0 2px 10px rgba(36, 19, 50, 0.25);
+      box-shadow: 0 2px 10px rgba(62, 64, 56, 0.06);
       z-index: 10;
     }
 
@@ -45,18 +46,18 @@
       min-width: 30px;
       height: 30px;
       padding: 0 10px;
-      border: 0;
+      border: 1px solid #e8e0d4;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.12);
-      color: #fff;
+      background: #faf6f1;
+      color: #5f6d59;
       font-size: 0.95rem;
       cursor: pointer;
       line-height: 1;
-      transition: background 0.15s ease, transform 0.15s ease;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
     }
 
-    .v-btn:hover { background: rgba(255, 255, 255, 0.28); transform: translateY(-1px); }
-    .v-btn.active { background: linear-gradient(135deg, #ff4d6d, #ff9a3d); }
+    .v-btn:hover { background: #e2e8de; border-color: #a8b5a2; transform: translateY(-1px); }
+    .v-btn.active { background: #5f6d59; border-color: #5f6d59; color: #fff; }
 
     .v-page {
       display: inline-flex;
@@ -68,21 +69,21 @@
     .v-page input {
       width: 48px;
       height: 26px;
-      border: 0;
+      border: 1px solid #e8e0d4;
       border-radius: 6px;
       padding: 0 4px;
       text-align: center;
       font-size: 0.85rem;
-      background: rgba(255, 255, 255, 0.12);
-      color: #fff;
+      background: #fffcf8;
+      color: #3e4038;
     }
 
-    .v-page input:focus { outline: 2px solid #ff9a3d; }
+    .v-page input:focus { outline: 2px solid #a8b5a2; }
 
     .v-divider {
       width: 1px;
       height: 20px;
-      background: rgba(255, 255, 255, 0.2);
+      background: #e8e0d4;
       margin: 0 4px;
     }
 
@@ -96,8 +97,8 @@
     /* 目录 */
     .v-toc {
       flex: 0 0 260px;
-      background: #fffdfb;
-      border-right: 1px solid #f0e4ec;
+      background: #fffcf8;
+      border-right: 1px solid #e8e0d4;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -110,8 +111,9 @@
       padding: 12px 14px;
       font-weight: 700;
       font-size: 0.95rem;
-      border-bottom: 1px solid #f0e4ec;
-      background: linear-gradient(135deg, #fff0f2, #fff7f0);
+      border-bottom: 1px solid #e8e0d4;
+      background: #faf6f1;
+      color: #5f6d59;
     }
 
     .toc-list {
@@ -125,7 +127,7 @@
       padding: 6px 10px;
       margin-bottom: 2px;
       border-radius: 8px;
-      color: #5a4a66;
+      color: #8a877e;
       font-size: 0.83rem;
       text-decoration: none;
       line-height: 1.45;
@@ -136,16 +138,16 @@
       transition: background 0.12s ease, color 0.12s ease;
     }
 
-    .toc-item:hover { background: #fff0f2; color: #ff4d6d; }
-    .toc-item.current { background: linear-gradient(135deg, #ff4d6d, #ff9a3d); color: #fff; }
+    .toc-item:hover { background: #e2e8de; color: #5f6d59; }
+    .toc-item.current { background: #5f6d59; color: #fff; }
 
     /* 滚动区：页面竖向堆叠 */
     .v-scroll {
       flex: 1;
       overflow: auto;
       background:
-        radial-gradient(600px 300px at 20% 0%, rgba(139, 92, 246, 0.06), transparent 60%),
-        #e9e4ec;
+        radial-gradient(600px 300px at 20% 0%, rgba(168, 181, 162, 0.12), transparent 60%),
+        #f3ede4;
       position: relative;
     }
 
@@ -165,7 +167,7 @@
 
     .v-page-canvas {
       background: #fff;
-      box-shadow: 0 4px 16px rgba(36, 19, 50, 0.22), 0 12px 40px rgba(36, 19, 50, 0.12);
+      box-shadow: 0 4px 16px rgba(62, 64, 56, 0.16), 0 12px 40px rgba(62, 64, 56, 0.08);
       border-radius: 4px;
       display: block;
     }
@@ -178,7 +180,7 @@
       right: -34px;
       font-size: 0.78rem;
       font-weight: 600;
-      color: #8a7a95;
+      color: #b0a89a;
     }
 
     .v-loading, .v-error {
@@ -186,18 +188,19 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: #fff;
+      color: #3e4038;
       font-size: 0.95rem;
-      background: linear-gradient(135deg, #241332, #3b0f4f);
+      background: #fffcf8;
+      border: 1px solid #e8e0d4;
       padding: 12px 22px;
       border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(36, 19, 50, 0.35);
+      box-shadow: 0 10px 30px rgba(62, 64, 56, 0.12);
     }
 
     /* 滚动条美化 */
     .v-scroll::-webkit-scrollbar { width: 10px; }
-    .v-scroll::-webkit-scrollbar-thumb { background: #cfc0d6; border-radius: 6px; }
-    .v-scroll::-webkit-scrollbar-thumb:hover { background: #b8a6c2; }
+    .v-scroll::-webkit-scrollbar-thumb { background: #d8cfc0; border-radius: 6px; }
+    .v-scroll::-webkit-scrollbar-thumb:hover { background: #c9bfad; }
     .v-scroll::-webkit-scrollbar-track { background: transparent; }
 
     @media (max-width: 640px) {
@@ -221,7 +224,7 @@
     <span id="zoom-level" class="v-page">100%</span>
     <button id="btn-zoom-in" class="v-btn" type="button" title="放大">+</button>
     <span class="v-divider"></span>
-    <button id="btn-close" class="v-btn" type="button" title="关闭预览（Esc）">✕</button>
+    <button id="btn-close" class="v-btn" type="button" title="返回（Esc）">✕</button>
   </header>
 
   <div class="v-body">
