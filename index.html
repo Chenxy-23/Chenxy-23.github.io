@@ -3,33 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Chenxy 的个人作品集与博客：项目图文、视频作品与日常分享。">
-  <title>Chenxy | 作品集与博客</title>
+  <meta name="description" content="Chenxy 的新媒体运营作品集：内容案例、视频作品与个人博客。">
+  <title>Chenxy · 新媒体运营作品集</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav class="site-nav">
     <div class="container nav-inner">
-      <a class="nav-brand" href="#home">Chenxy</a>
+      <a class="nav-brand" href="#home">Chenxy<span class="nav-brand-dot">.</span></a>
       <div class="nav-links">
-        <a href="#works">作品</a>
+        <a href="#works">案例</a>
+        <a href="#skills">技能</a>
         <a href="#videos">视频</a>
-        <a href="#blog">博客</a>
+        <a href="#blog">专栏</a>
+        <a href="#about">关于</a>
         <a href="#contact">联系</a>
       </div>
     </div>
   </nav>
 
+  <!-- ============ 首屏 Hero ============ -->
   <header id="home" class="hero">
+    <div class="hero-blob blob-1"></div>
+    <div class="hero-blob blob-2"></div>
+    <div class="hero-blob blob-3"></div>
     <div class="container hero-inner">
-      <div class="avatar">C</div>
-      <h1 class="hero-title">你好，我是 Chenxy</h1>
-      <p class="hero-sub">开发者 · 内容创作者 · 保持好奇的终身学习者</p>
-      <p class="hero-desc">这里是我的作品集与博客：用图文记录项目，用视频分享经验，也留一点空间给生活。</p>
+      <div class="avatar">✦</div>
+      <p class="hero-kicker">嗨，我是</p>
+      <h1 class="hero-title">Chenxy</h1>
+      <p class="hero-sub">
+        <span class="hero-label">新媒体运营 ·</span>
+        <span class="typed" id="typed">内容策划</span>
+      </p>
+      <p class="hero-desc">让每条内容都有人看，让每个账号都被记住。用内容策划、短视频与数据分析，把品牌讲成故事。</p>
+      <div class="hero-stats">
+        <div class="stat-pill"><b>30+</b><span>爆款案例</span></div>
+        <div class="stat-pill"><b>20w+</b><span>涨粉总量</span></div>
+        <div class="stat-pill"><b>8.5%</b><span>平均互动率</span></div>
+      </div>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#works">查看作品</a>
-        <a class="btn btn-ghost" href="#contact">联系我</a>
+        <a class="btn btn-primary" href="#works">👀 看案例</a>
+        <a class="btn btn-ghost" href="#contact">🤝 找我合作</a>
       </div>
       <div class="hero-social">
         <a class="social-pill" href="https://github.com/Chenxy-23" target="_blank" rel="noopener">🐙 GitHub</a>
@@ -39,22 +54,99 @@
     </div>
   </header>
 
-  <main class="container">
-    <!-- ============ 作品集 ============ -->
-    <section id="works" class="section">
-      <h2 class="section-title">作品集 <span class="section-sub">Projects</span></h2>
-      <div class="work-grid">
+  <!-- 跑马灯标语条 -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>内容创作 ✦ 短视频 ✦ 数据增长 ✦ 社群运营 ✦ 直播策划 ✦ 品牌种草 ✦</span>
+      <span>内容创作 ✦ 短视频 ✦ 数据增长 ✦ 社群运营 ✦ 直播策划 ✦ 品牌种草 ✦</span>
+    </div>
+  </div>
 
+  <main class="container">
+    <!-- ============ 案例作品（全平台混合） ============ -->
+    <section id="works" class="section">
+      <h2 class="section-title">案例作品 <span class="section-sub">Cases · 全平台</span></h2>
+      <p class="section-desc">从图文到短视频，从种草到转化——每个账号背后都是同一套方法论。</p>
+      <div class="masonry">
+
+        <!-- 小红书竖版案例 -->
+        <article class="card work tall reveal">
+          <div class="work-media ph-xhs">
+            <span class="platform-badge">📕 小红书</span>
+            <span class="ph-emoji">💄</span>
+            <span class="ph-text">美妆种草账号 · 从 0 起号</span>
+          </div>
+          <div class="work-body">
+            <h3>美妆垂类账号冷启动</h3>
+            <p>占位：替换成你的真实案例，一句话讲清背景、你的动作与成果。</p>
+            <div class="result-chips">
+              <span class="chip chip-hot">🔥 涨粉 5w</span>
+              <span class="chip">爆款笔记 32 篇</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 抖音竖版案例 -->
+        <article class="card work tall reveal">
+          <div class="work-media ph-dy">
+            <span class="platform-badge">🎵 抖音</span>
+            <span class="ph-emoji">🎬</span>
+            <span class="ph-text">短视频账号 · 剧情/带货</span>
+          </div>
+          <div class="work-body">
+            <h3>短视频账号运营</h3>
+            <p>占位：替换成你的真实案例，写清选题策略与爆款逻辑。</p>
+            <div class="result-chips">
+              <span class="chip chip-hot">🔥 播放 280w</span>
+              <span class="chip">点赞 12w</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- B站 / 视频号横版 -->
+        <article class="card work wide reveal">
+          <div class="work-media ph-bili">
+            <span class="platform-badge">📺 B站 / 视频号</span>
+            <span class="ph-emoji">🖥️</span>
+            <span class="ph-text">中长视频 · 知识区/生活区</span>
+          </div>
+          <div class="work-body">
+            <h3>中长视频栏目</h3>
+            <p>占位：替换成你的真实案例，描述内容栏目规划与数据表现。</p>
+            <div class="result-chips">
+              <span class="chip chip-hot">🔥 播放 180w</span>
+              <span class="chip">完播率 45%</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 公众号图文方版 -->
         <article class="card work reveal">
-          <!-- 封面图：把策划书首页导出成图片放到 assets/projects/ 后，取消下面这行注释 -->
-          <!-- <img class="work-media" src="assets/projects/sanchuangsai-cover.png" alt="三创赛策划书封面"> -->
-          <div class="work-media ph-green">
+          <div class="work-media ph-gzh">
+            <span class="platform-badge">📰 公众号</span>
+            <span class="ph-emoji">📝</span>
+            <span class="ph-text">图文专栏 · 深度内容</span>
+          </div>
+          <div class="work-body">
+            <h3>公众号图文专栏</h3>
+            <p>占位：替换成你的真实案例，写清选题方向与阅读数据。</p>
+            <div class="result-chips">
+              <span class="chip chip-hot">🔥 阅读 10w+</span>
+              <span class="chip">转发率 8%</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 三创赛策划书（真实项目，保留 PDF 预览） -->
+        <article class="card work wide reveal">
+          <div class="work-media ph-project">
+            <span class="platform-badge">🏆 三创赛</span>
             <span class="ph-emoji">📊</span>
             <span class="ph-text">商务大数据分析实战赛 · 策划书</span>
           </div>
           <div class="work-body">
             <h3>三创赛 · 商务大数据分析实战赛</h3>
-            <p>全国大学生电子商务三创赛（安徽赛区）参赛项目，从容 1 队。完整策划书可在页面内直接预览；如需获取原文，欢迎通过页面底部的联系方式与我沟通。</p>
+            <p>全国大学生电子商务三创赛（安徽赛区）参赛项目，从容 1 队。完整策划书可在页面内滚动阅读。</p>
             <div class="tags">
               <span>大数据</span><span>数据分析</span><span>三创赛</span>
             </div>
@@ -62,39 +154,33 @@
           </div>
         </article>
 
+        <!-- 个人博客网站 -->
         <article class="card work reveal">
-          <!-- 替换封面图片：把下面这行注释去掉，改成你的图片路径 -->
-          <!-- <img class="work-media" src="assets/project-1.png" alt="个人博客网站截图"> -->
-          <div class="work-media ph-blue">
-            <span class="ph-emoji">🖥️</span>
-            <span class="ph-text">项目封面 · 替换为你的图片</span>
+          <div class="work-media ph-web">
+            <span class="platform-badge">🌐 个人网站</span>
+            <span class="ph-emoji">🚀</span>
+            <span class="ph-text">个人品牌官网</span>
           </div>
           <div class="work-body">
-            <h3>个人博客网站</h3>
-            <p>基于 GitHub Pages 搭建的个人作品集与博客，你现在看到的这个页面本身就是一件作品。</p>
-            <div class="tags">
-              <span>HTML</span><span>CSS</span><span>GitHub Pages</span>
-            </div>
-            <a class="work-link" href="https://chenxy-23.github.io/" target="_blank" rel="noopener">查看项目 →</a>
+            <h3>个人品牌网站</h3>
+            <p>你现在看到的这个页面，本身就是我的品牌名片与作品。</p>
+            <a class="work-link" href="https://chenxy-23.github.io/" target="_blank" rel="noopener">访问本站 →</a>
           </div>
         </article>
 
-        <article class="card work reveal">
-          <!-- <img class="work-media" src="assets/project-3.png" alt="项目三截图"> -->
-          <div class="work-media ph-orange">
-            <span class="ph-emoji">🎨</span>
-            <span class="ph-text">项目封面 · 替换为你的图片</span>
-          </div>
-          <div class="work-body">
-            <h3>你的项目名</h3>
-            <p>用一两句话介绍这个项目：它的背景、你承担的角色，以及最终成果。</p>
-            <div class="tags">
-              <span>UI</span><span>React</span><span>部署</span>
-            </div>
-            <a class="work-link" href="#" target="_blank" rel="noopener">查看项目 →</a>
-          </div>
-        </article>
+      </div>
+    </section>
 
+    <!-- ============ 技能栈 ============ -->
+    <section id="skills" class="section">
+      <h2 class="section-title">我的技能 <span class="section-sub">Skills</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card reveal"><span class="skill-icon">✍️</span><h3>内容策划</h3><p>选题、脚本、文案，把"想表达"变成"有人看"。</p></div>
+        <div class="skill-card reveal"><span class="skill-icon">🎬</span><h3>短视频制作</h3><p>拍摄、剪辑、节奏把控，网感在线。</p></div>
+        <div class="skill-card reveal"><span class="skill-icon">📈</span><h3>数据分析</h3><p>用数据复盘内容，找到增长规律。</p></div>
+        <div class="skill-card reveal"><span class="skill-icon">💬</span><h3>社群运营</h3><p>建群、活跃、转化，让用户留下来。</p></div>
+        <div class="skill-card reveal"><span class="skill-icon">🚀</span><h3>平台投放</h3><p>预算分配、ROI 优化，花对每一分钱。</p></div>
+        <div class="skill-card reveal"><span class="skill-icon">🔴</span><h3>直播策划</h3><p>话术、节奏、场控，把直播间盘活。</p></div>
       </div>
     </section>
 
@@ -102,80 +188,82 @@
     <section id="videos" class="section">
       <h2 class="section-title">视频作品 <span class="section-sub">Videos</span></h2>
       <div class="video-grid">
-
         <article class="card video-card reveal">
-          <!-- 替换方式一：B 站嵌入
+          <!-- 嵌入方式：把下面注释改成真实 iframe 即可
           <iframe class="video-embed" src="https://player.bilibili.com/player.html?bvid=BV1xxxxxxxxx" scrolling="no" border="0" frameborder="no" allowfullscreen="true"></iframe>
-          -->
-          <!-- 替换方式二：YouTube 嵌入
-          <iframe class="video-embed" src="https://www.youtube.com/embed/你的视频ID" title="视频标题" allowfullscreen></iframe>
-          -->
-          <!-- 替换方式三：本地视频
-          <video class="video-embed" src="videos/demo.mp4" controls preload="metadata"></video>
           -->
           <div class="video-thumb ph-video">
             <span class="play-btn">▶</span>
-            <span class="ph-text">视频封面 · 可嵌入 B 站 / YouTube / 本地 mp4</span>
+            <span class="ph-text">视频封面 · B站 / YouTube / 本地 mp4</span>
           </div>
           <div class="work-body">
-            <h3>视频作品占位 1</h3>
-            <p>替换成你的视频标题与简介，把上面的注释行改成真实代码即可播放。</p>
+            <h3>视频作品 1</h3>
+            <p>占位：替换成你的视频标题与简介，把上面的注释改成真实代码即可播放。</p>
             <span class="tag-platform">🎬 Bilibili</span>
           </div>
         </article>
-
         <article class="card video-card reveal">
           <!-- <iframe class="video-embed" src="https://player.bilibili.com/player.html?bvid=BV1yyyyyyyyy" scrolling="no" border="0" frameborder="no" allowfullscreen="true"></iframe> -->
           <div class="video-thumb ph-video">
             <span class="play-btn">▶</span>
-            <span class="ph-text">视频封面 · 可嵌入 B 站 / YouTube / 本地 mp4</span>
+            <span class="ph-text">视频封面 · 可嵌入 B站 / YouTube / 本地 mp4</span>
           </div>
           <div class="work-body">
-            <h3>视频作品占位 2</h3>
-            <p>替换成你的视频标题与简介，B 站、YouTube 或上传到 videos/ 目录的本地文件都支持。</p>
+            <h3>视频作品 2</h3>
+            <p>占位：替换成你的视频标题与简介，B站、YouTube 或本地文件都支持。</p>
             <span class="tag-platform">📺 YouTube</span>
           </div>
         </article>
-
       </div>
     </section>
 
-    <!-- ============ 博客 ============ -->
+    <!-- ============ 内容专栏（博客） ============ -->
     <section id="blog" class="section">
-      <h2 class="section-title">博客文章 <span class="section-sub">Blog</span></h2>
+      <h2 class="section-title">内容专栏 <span class="section-sub">Blog</span></h2>
       <div class="post-list">
-
         <article class="card post reveal">
           <div class="post-body">
             <time class="post-date" datetime="2026-08-12">2026-08-12</time>
             <h3 class="post-title"><a href="posts/hello-world.html">你好，世界</a></h3>
-            <p class="post-excerpt">这是我的第一篇博客，也是这个站点开始运转的日子。聊聊为什么搭建博客，以及接下来打算写些什么。</p>
+            <p class="post-excerpt">这是我的第一篇博客，也是这个站点开始运转的日子。聊聊为什么搭这个站，以及接下来打算写什么。</p>
           </div>
         </article>
-
         <article class="card post reveal">
           <div class="post-body">
             <time class="post-date" datetime="2026-08-12">2026-08-12</time>
-            <h3 class="post-title"><a href="#">GitHub Pages 快速入门</a></h3>
-            <p class="post-excerpt">只需一个仓库、一个 HTML 文件，就能拥有属于自己的个人网站。示例文章，占位待完善。</p>
+            <h3 class="post-title"><a href="#">新媒体运营，从 0 到 1 怎么做</a></h3>
+            <p class="post-excerpt">占位：一篇关于起号方法论的深度文章，替换成你的内容。</p>
           </div>
         </article>
-
         <article class="card post reveal">
           <div class="post-body">
             <time class="post-date" datetime="2026-08-12">2026-08-12</time>
-            <h3 class="post-title"><a href="#">我的学习路线</a></h3>
-            <p class="post-excerpt">整理一下最近在学的东西和踩过的坑。示例文章，占位待完善。</p>
+            <h3 class="post-title"><a href="#">我的学习路线与踩坑记录</a></h3>
+            <p class="post-excerpt">占位：整理最近在学的东西和踩过的坑，替换成你的内容。</p>
           </div>
         </article>
-
       </div>
     </section>
 
-    <!-- ============ 社交媒体 / 联系 ============ -->
+    <!-- ============ 关于我 ============ -->
+    <section id="about" class="section">
+      <h2 class="section-title">关于我 <span class="section-sub">About</span></h2>
+      <div class="about-card card reveal">
+        <div class="about-avatar">✦</div>
+        <div class="about-body">
+          <h3>把内容当成产品来打磨</h3>
+          <p>我是 Chenxy，一名新媒体运营。相信"好内容 + 好数据 = 好增长"：先读懂用户，再创造内容，最后用数据验证、迭代。这里有我做过的案例、拍过的视频，和持续更新的思考。欢迎交流。</p>
+          <div class="tags">
+            <span>内容增长</span><span>短视频</span><span>用户洞察</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 联系 ============ -->
     <section id="contact" class="section">
-      <h2 class="section-title">社交媒体 / 联系我 <span class="section-sub">Contact</span></h2>
-      <p class="section-desc">想交流合作，或者只是打个招呼？欢迎通过以下方式找到我：</p>
+      <h2 class="section-title">找到我 <span class="section-sub">Contact</span></h2>
+      <p class="section-desc">想聊合作、换思路，或者只是打个招呼？欢迎通过以下方式：</p>
       <div class="contact-grid">
         <a class="contact-card reveal" href="https://github.com/Chenxy-23" target="_blank" rel="noopener">
           <span class="contact-icon">🐙</span>
@@ -189,12 +277,12 @@
         </a>
         <a class="contact-card reveal" href="#" target="_blank" rel="noopener">
           <span class="contact-icon">📱</span>
-          <span class="contact-name">微博</span>
+          <span class="contact-name">小红书</span>
           <span class="contact-value">替换成你的主页</span>
         </a>
         <a class="contact-card reveal" href="#" target="_blank" rel="noopener">
-          <span class="contact-icon">📕</span>
-          <span class="contact-name">小红书</span>
+          <span class="contact-icon">🎵</span>
+          <span class="contact-name">抖音</span>
           <span class="contact-value">替换成你的主页</span>
         </a>
         <a class="contact-card reveal" href="mailto:1920545756@qq.com">
@@ -213,24 +301,37 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2026 Chenxy · 由 <a href="https://github.com/Chenxy-23">GitHub</a> 托管</p>
+      <p>© 2026 Chenxy · 新媒体运营 · 由 <a href="https://github.com/Chenxy-23">GitHub</a> 托管</p>
     </div>
   </footer>
 
-  <!-- 策划书预览弹窗（仅页面内预览，不提供下载入口） -->
+  <!-- 策划书预览弹窗（页面内滚动阅读，不提供下载入口） -->
   <div class="modal-overlay" id="pdf-preview-modal" aria-hidden="true">
     <div class="modal-box" role="dialog" aria-label="策划书预览">
       <div class="modal-head">
-        <strong>三创赛 · 商务大数据分析实战赛 策划书（预览）</strong>
+        <strong>三创赛 · 商务大数据分析实战赛 策划书（滚动阅读）</strong>
         <button class="modal-close" type="button" onclick="closePdfPreview()" aria-label="关闭预览">✕</button>
       </div>
-      <!-- 预留加载提示；iframe 首次打开时才创建，避免占位 -->
       <div class="pdf-frame pdf-frame-loading" id="pdf-frame-loading">正在准备预览…</div>
       <iframe class="pdf-frame" id="pdf-preview-frame" title="策划书预览" oncontextmenu="return false" hidden></iframe>
     </div>
   </div>
 
   <script>
+    // ===== 打字机副标题 =====
+    var words = ['内容策划', '短视频增长', '数据驱动', '品牌种草', '社群运营'];
+    var typedEl = document.getElementById('typed');
+    var wi = 0, ci = 0, deleting = false;
+    (function tick() {
+      var word = words[wi];
+      typedEl.textContent = word.slice(0, ci);
+      if (!deleting && ci < word.length) { ci++; setTimeout(tick, 120); }
+      else if (!deleting) { deleting = true; setTimeout(tick, 1600); }
+      else if (ci > 0) { ci--; setTimeout(tick, 45); }
+      else { deleting = false; wi = (wi + 1) % words.length; setTimeout(tick, 300); }
+    })();
+
+    // ===== 策划书预览弹窗 =====
     var pdfModal = document.getElementById('pdf-preview-modal');
     var pdfFrame = document.getElementById('pdf-preview-frame');
     var pdfLoading = document.getElementById('pdf-frame-loading');
@@ -238,7 +339,6 @@
 
     function openPdfPreview() {
       if (!pdfLoaded) {
-        // 首次打开才加载 iframe（懒加载），并显示过渡提示
         pdfLoading.hidden = false;
         pdfFrame.onload = function () {
           pdfLoaded = true;
@@ -262,15 +362,10 @@
     }
 
     pdfModal.addEventListener('click', function (e) {
-      if (e.target === pdfModal) {
-        closePdfPreview();
-      }
+      if (e.target === pdfModal) closePdfPreview();
     });
-
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        closePdfPreview();
-      }
+      if (e.key === 'Escape') closePdfPreview();
     });
 
     // ===== 滚动进入动画 =====
@@ -286,7 +381,6 @@
       }, { threshold: 0.12 });
       revealEls.forEach(function (el) { revealObserver.observe(el); });
     } else {
-      // 旧浏览器直接全部显示
       revealEls.forEach(function (el) { el.classList.add('is-visible'); });
     }
   </script>

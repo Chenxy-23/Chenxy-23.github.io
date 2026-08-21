@@ -12,20 +12,23 @@
         "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       display: flex;
       flex-direction: column;
-      background: #e5e7eb;
-      color: #1f2937;
+      background: #e9e4ec;
+      color: #241332;
     }
 
+    /* ===== 顶部工具栏 ===== */
     .v-toolbar {
       flex: 0 0 auto;
       display: flex;
       align-items: center;
       gap: 8px;
       padding: 8px 12px;
-      background: #1f2937;
+      background: linear-gradient(135deg, #241332, #3b0f4f);
       color: #fff;
       font-size: 0.9rem;
       flex-wrap: wrap;
+      box-shadow: 0 2px 10px rgba(36, 19, 50, 0.25);
+      z-index: 10;
     }
 
     .v-title {
@@ -43,16 +46,17 @@
       height: 30px;
       padding: 0 10px;
       border: 0;
-      border-radius: 6px;
+      border-radius: 8px;
       background: rgba(255, 255, 255, 0.12);
       color: #fff;
       font-size: 0.95rem;
       cursor: pointer;
       line-height: 1;
+      transition: background 0.15s ease, transform 0.15s ease;
     }
 
-    .v-btn:hover { background: rgba(255, 255, 255, 0.25); }
-    .v-btn.active { background: #4f46e5; }
+    .v-btn:hover { background: rgba(255, 255, 255, 0.28); transform: translateY(-1px); }
+    .v-btn.active { background: linear-gradient(135deg, #ff4d6d, #ff9a3d); }
 
     .v-page {
       display: inline-flex;
@@ -65,11 +69,15 @@
       width: 48px;
       height: 26px;
       border: 0;
-      border-radius: 5px;
+      border-radius: 6px;
       padding: 0 4px;
       text-align: center;
       font-size: 0.85rem;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
     }
+
+    .v-page input:focus { outline: 2px solid #ff9a3d; }
 
     .v-divider {
       width: 1px;
@@ -78,16 +86,18 @@
       margin: 0 4px;
     }
 
+    /* ===== 主体 ===== */
     .v-body {
       flex: 1;
       display: flex;
       overflow: hidden;
     }
 
+    /* 目录 */
     .v-toc {
       flex: 0 0 260px;
-      background: #f9fafb;
-      border-right: 1px solid #d1d5db;
+      background: #fffdfb;
+      border-right: 1px solid #f0e4ec;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -97,10 +107,11 @@
     .v-toc.hidden { margin-left: -260px; }
 
     .toc-head {
-      padding: 10px 14px;
+      padding: 12px 14px;
       font-weight: 700;
-      border-bottom: 1px solid #e5e7eb;
-      background: #fff;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #f0e4ec;
+      background: linear-gradient(135deg, #fff0f2, #fff7f0);
     }
 
     .toc-list {
@@ -111,9 +122,10 @@
 
     .toc-item {
       display: block;
-      padding: 5px 8px;
-      border-radius: 6px;
-      color: #374151;
+      padding: 6px 10px;
+      margin-bottom: 2px;
+      border-radius: 8px;
+      color: #5a4a66;
       font-size: 0.83rem;
       text-decoration: none;
       line-height: 1.45;
@@ -121,25 +133,52 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      transition: background 0.12s ease, color 0.12s ease;
     }
 
-    .toc-item:hover { background: #eef2ff; color: #4338ca; }
-    .toc-item.current { background: #4f46e5; color: #fff; }
+    .toc-item:hover { background: #fff0f2; color: #ff4d6d; }
+    .toc-item.current { background: linear-gradient(135deg, #ff4d6d, #ff9a3d); color: #fff; }
 
-    .v-canvas-wrap {
+    /* 滚动区：页面竖向堆叠 */
+    .v-scroll {
       flex: 1;
       overflow: auto;
-      background: #525659;
-      display: flex;
-      justify-content: center;
-      padding: 24px;
+      background:
+        radial-gradient(600px 300px at 20% 0%, rgba(139, 92, 246, 0.06), transparent 60%),
+        #e9e4ec;
       position: relative;
     }
 
-    #pdf-canvas {
+    .v-pages {
+      padding: 28px 18px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .v-page-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .v-page-canvas {
       background: #fff;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-      align-self: flex-start;
+      box-shadow: 0 4px 16px rgba(36, 19, 50, 0.22), 0 12px 40px rgba(36, 19, 50, 0.12);
+      border-radius: 4px;
+      display: block;
+    }
+
+    /* 页码角标（当前页高亮） */
+    .v-page-wrap::before {
+      content: attr(data-page);
+      position: absolute;
+      top: 10px;
+      right: -34px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #8a7a95;
     }
 
     .v-loading, .v-error {
@@ -149,15 +188,23 @@
       transform: translate(-50%, -50%);
       color: #fff;
       font-size: 0.95rem;
-      background: rgba(17, 24, 39, 0.75);
-      padding: 10px 18px;
-      border-radius: 8px;
+      background: linear-gradient(135deg, #241332, #3b0f4f);
+      padding: 12px 22px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(36, 19, 50, 0.35);
     }
+
+    /* 滚动条美化 */
+    .v-scroll::-webkit-scrollbar { width: 10px; }
+    .v-scroll::-webkit-scrollbar-thumb { background: #cfc0d6; border-radius: 6px; }
+    .v-scroll::-webkit-scrollbar-thumb:hover { background: #b8a6c2; }
+    .v-scroll::-webkit-scrollbar-track { background: transparent; }
 
     @media (max-width: 640px) {
       .v-toc { flex-basis: 220px; }
       .v-toc.hidden { margin-left: -220px; }
-      .v-title { max-width: 30vw; }
+      .v-title { max-width: 26vw; }
+      .v-page-wrap::before { display: none; }
     }
   </style>
 </head>
@@ -174,7 +221,7 @@
     <span id="zoom-level" class="v-page">100%</span>
     <button id="btn-zoom-in" class="v-btn" type="button" title="放大">+</button>
     <span class="v-divider"></span>
-    <button id="btn-close" class="v-btn" type="button" title="关闭预览">✕</button>
+    <button id="btn-close" class="v-btn" type="button" title="关闭预览（Esc）">✕</button>
   </header>
 
   <div class="v-body">
@@ -182,8 +229,8 @@
       <div class="toc-head">目录（点击跳转）</div>
       <nav id="toc-list" class="toc-list"></nav>
     </aside>
-    <main id="canvas-wrap" class="v-canvas-wrap" oncontextmenu="return false">
-      <canvas id="pdf-canvas"></canvas>
+    <main id="scroll-wrap" class="v-scroll" oncontextmenu="return false">
+      <div id="pages" class="v-pages"></div>
       <div id="loading" class="v-loading">正在加载文档…</div>
       <div id="error" class="v-error" hidden>加载失败，请稍后重试。</div>
     </main>
