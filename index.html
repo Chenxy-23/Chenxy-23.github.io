@@ -54,11 +54,11 @@
           </div>
           <div class="work-body">
             <h3>三创赛 · 商务大数据分析实战赛</h3>
-            <p>全国大学生电子商务三创赛（安徽赛区）参赛项目，从容 1 队。完整策划书可在浏览器中在线查看或下载。</p>
+            <p>全国大学生电子商务三创赛（安徽赛区）参赛项目，从容 1 队。完整策划书可在页面内直接预览；如需获取原文，欢迎通过页面底部的联系方式与我沟通。</p>
             <div class="tags">
               <span>大数据</span><span>数据分析</span><span>三创赛</span>
             </div>
-            <a class="work-link" href="assets/projects/%E4%B8%89%E5%88%9B%E8%B5%9B-%E5%95%86%E5%8A%A1%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98%E8%B5%9B-%E7%AD%96%E5%88%92%E4%B9%A6.pdf" target="_blank" rel="noopener">查看策划书 PDF →</a>
+            <button class="btn-preview" type="button" onclick="openPdfPreview()">📄 在线预览策划书</button>
           </div>
         </article>
 
@@ -216,5 +216,48 @@
       <p>© 2026 Chenxy · 由 <a href="https://github.com/Chenxy-23">GitHub</a> 托管</p>
     </div>
   </footer>
+
+  <!-- 策划书预览弹窗（仅页面内预览，不提供下载入口） -->
+  <div class="modal-overlay" id="pdf-preview-modal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-label="策划书预览">
+      <div class="modal-head">
+        <strong>三创赛 · 商务大数据分析实战赛 策划书（预览）</strong>
+        <button class="modal-close" type="button" onclick="closePdfPreview()" aria-label="关闭预览">✕</button>
+      </div>
+      <iframe class="pdf-frame" id="pdf-preview-frame" title="策划书预览" oncontextmenu="return false"></iframe>
+    </div>
+  </div>
+
+  <script>
+    var pdfModal = document.getElementById('pdf-preview-modal');
+    var pdfFrame = document.getElementById('pdf-preview-frame');
+
+    function openPdfPreview() {
+      if (!pdfFrame.src) {
+        pdfFrame.src = 'assets/projects/%E4%B8%89%E5%88%9B%E8%B5%9B-%E5%95%86%E5%8A%A1%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98%E8%B5%9B-%E7%AD%96%E5%88%92%E4%B9%A6.pdf#toolbar=0&navpanes=0&view=FitH';
+      }
+      pdfModal.classList.add('open');
+      pdfModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePdfPreview() {
+      pdfModal.classList.remove('open');
+      pdfModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    pdfModal.addEventListener('click', function (e) {
+      if (e.target === pdfModal) {
+        closePdfPreview();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closePdfPreview();
+      }
+    });
+  </script>
 </body>
 </html>
