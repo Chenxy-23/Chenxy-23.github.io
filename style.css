@@ -40,6 +40,27 @@ a {
   padding: 0 20px;
 }
 
+/* ===== 滚动进入动画 ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ===== 顶部导航 ===== */
 .site-nav {
   position: sticky;
@@ -376,6 +397,16 @@ main {
   width: 100%;
   border: 0;
   background: #525659;
+}
+
+/* 首次打开 PDF 前的过渡占位 */
+.pdf-frame-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d1d5db;
+  font-size: 0.95rem;
+  background: #1f2937;
 }
 
 /* ===== 视频区 ===== */

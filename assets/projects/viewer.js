@@ -13,6 +13,13 @@
   var baseViewport = null;
   var renderTask = null;
 
+  // 页面渲染缓存：翻页/回看时直接复用像素，跳过昂贵的 getPage + render
+  // key = 页码，value = { canvas, styleW, styleH }
+  var pageCache = new Map();
+  var CACHE_LIMIT = 6;
+  // 限制高分屏 devicePixelRatio，避免超大 canvas 拖慢渲染
+  var outputScale = Math.min(window.devicePixelRatio || 1, 2);
+
   var canvas = document.getElementById('pdf-canvas');
   var ctx = canvas.getContext('2d');
   var wrap = document.getElementById('canvas-wrap');
@@ -33,6 +40,10 @@
     return Math.max(0.4, Math.min(2.5, avail / baseViewport.width));
   }
 
+  function clearCache() {
+    pageCache.clear();
+  }
+
   function updatePageUI() {
     pageInput.value = currentPage;
     pageTotal.textContent = pdfDoc.numPages;
@@ -46,14 +57,55 @@
     }
   }
 
+  // 把一张已渲染好的 canvas 绘制到主 canvas 上（命中缓存时走这里）
+  function blit(source, styleW, styleH) {
+    canvas.width = source.width;
+    canvas.height = source.height;
+    canvas.style.width = styleW + 'px';
+    canvas.style.height = styleH + 'px';
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.drawImage(source, 0, 0);
+  }
+
+  // 后台预渲染相邻页，静默写入缓存，翻到时秒开
+  function preload(page) {
+    if (!pdfDoc || page < 1 || page > pdfDoc.numPages) return;
+    if (pageCache.has(page)) return;
+    var scale = fitScale() * zoom;
+    pdfDoc.getPage(page).then(function (p) {
+      var viewport = p.getViewport({ scale: scale });
+      var off = document.createElement('canvas');
+      var octx = off.getContext('2d');
+      off.width = Math.floor(viewport.width * outputScale);
+      off.height = Math.floor(viewport.height * outputScale);
+      octx.setTransform(outputScale, 0, 0, outputScale, 0, 0);
+      p.render({ canvasContext: octx, viewport: viewport }).promise.then(function () {
+        pageCache.set(page, { canvas: off, styleW: viewport.width, styleH: viewport.height });
+      }).catch(function () {});
+    }).catch(function () {});
+  }
+
   function renderPage() {
     if (!pdfDoc) return Promise.resolve();
+
+    // 命中缓存：直接绘制
+    var hit = pageCache.get(currentPage);
+    if (hit) {
+      if (renderTask) { renderTask.cancel(); renderTask = null; }
+      blit(hit.canvas, hit.styleW, hit.styleH);
+      updatePageUI();
+      wrap.scrollTop = 0;
+      preload(currentPage + 1);
+      preload(currentPage - 1);
+      return Promise.resolve();
+    }
+
     if (renderTask) renderTask.cancel();
+    var scale, viewport;
     return pdfDoc.getPage(currentPage).then(function (page) {
       baseViewport = page.getViewport({ scale: 1 });
-      var scale = fitScale() * zoom;
-      var viewport = page.getViewport({ scale: scale });
-      var outputScale = window.devicePixelRatio || 1;
+      scale = fitScale() * zoom;
+      viewport = page.getViewport({ scale: scale });
       canvas.width = Math.floor(viewport.width * outputScale);
       canvas.height = Math.floor(viewport.height * outputScale);
       canvas.style.width = viewport.width + 'px';
@@ -64,6 +116,17 @@
     }).then(function () {
       updatePageUI();
       wrap.scrollTop = 0;
+      // 缓存当前页，并预加载相邻页
+      var copy = document.createElement('canvas');
+      copy.width = canvas.width;
+      copy.height = canvas.height;
+      copy.getContext('2d').drawImage(canvas, 0, 0);
+      if (pageCache.size >= CACHE_LIMIT) {
+        pageCache.delete(pageCache.keys().next().value);
+      }
+      pageCache.set(currentPage, { canvas: copy, styleW: viewport.width, styleH: viewport.height });
+      preload(currentPage + 1);
+      preload(currentPage - 1);
     }).catch(function (err) {
       if (err && err.name === 'RenderingCancelledException') return;
       throw err;
@@ -120,8 +183,8 @@
   });
   document.getElementById('btn-prev').addEventListener('click', function () { jumpTo(currentPage - 1); });
   document.getElementById('btn-next').addEventListener('click', function () { jumpTo(currentPage + 1); });
-  document.getElementById('btn-zoom-in').addEventListener('click', function () { zoom = Math.min(3, zoom + 0.15); renderPage(); });
-  document.getElementById('btn-zoom-out').addEventListener('click', function () { zoom = Math.max(0.4, zoom - 0.15); renderPage(); });
+  document.getElementById('btn-zoom-in').addEventListener('click', function () { zoom = Math.min(3, zoom + 0.15); clearCache(); renderPage(); });
+  document.getElementById('btn-zoom-out').addEventListener('click', function () { zoom = Math.max(0.4, zoom - 0.15); clearCache(); renderPage(); });
   document.getElementById('btn-close').addEventListener('click', closePreview);
   pageInput.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
@@ -140,7 +203,7 @@
   var resizeTimer = null;
   window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function () { renderPage(); }, 200);
+    resizeTimer = setTimeout(function () { clearCache(); renderPage(); }, 200);
   });
 
   // 加载 PDF

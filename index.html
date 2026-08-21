@@ -45,7 +45,7 @@
       <h2 class="section-title">作品集 <span class="section-sub">Projects</span></h2>
       <div class="work-grid">
 
-        <article class="card work">
+        <article class="card work reveal">
           <!-- 封面图：把策划书首页导出成图片放到 assets/projects/ 后，取消下面这行注释 -->
           <!-- <img class="work-media" src="assets/projects/sanchuangsai-cover.png" alt="三创赛策划书封面"> -->
           <div class="work-media ph-green">
@@ -62,7 +62,7 @@
           </div>
         </article>
 
-        <article class="card work">
+        <article class="card work reveal">
           <!-- 替换封面图片：把下面这行注释去掉，改成你的图片路径 -->
           <!-- <img class="work-media" src="assets/project-1.png" alt="个人博客网站截图"> -->
           <div class="work-media ph-blue">
@@ -79,7 +79,7 @@
           </div>
         </article>
 
-        <article class="card work">
+        <article class="card work reveal">
           <!-- <img class="work-media" src="assets/project-3.png" alt="项目三截图"> -->
           <div class="work-media ph-orange">
             <span class="ph-emoji">🎨</span>
@@ -103,7 +103,7 @@
       <h2 class="section-title">视频作品 <span class="section-sub">Videos</span></h2>
       <div class="video-grid">
 
-        <article class="card video-card">
+        <article class="card video-card reveal">
           <!-- 替换方式一：B 站嵌入
           <iframe class="video-embed" src="https://player.bilibili.com/player.html?bvid=BV1xxxxxxxxx" scrolling="no" border="0" frameborder="no" allowfullscreen="true"></iframe>
           -->
@@ -124,7 +124,7 @@
           </div>
         </article>
 
-        <article class="card video-card">
+        <article class="card video-card reveal">
           <!-- <iframe class="video-embed" src="https://player.bilibili.com/player.html?bvid=BV1yyyyyyyyy" scrolling="no" border="0" frameborder="no" allowfullscreen="true"></iframe> -->
           <div class="video-thumb ph-video">
             <span class="play-btn">▶</span>
@@ -145,7 +145,7 @@
       <h2 class="section-title">博客文章 <span class="section-sub">Blog</span></h2>
       <div class="post-list">
 
-        <article class="card post">
+        <article class="card post reveal">
           <div class="post-body">
             <time class="post-date" datetime="2026-08-12">2026-08-12</time>
             <h3 class="post-title"><a href="posts/hello-world.html">你好，世界</a></h3>
@@ -153,7 +153,7 @@
           </div>
         </article>
 
-        <article class="card post">
+        <article class="card post reveal">
           <div class="post-body">
             <time class="post-date" datetime="2026-08-12">2026-08-12</time>
             <h3 class="post-title"><a href="#">GitHub Pages 快速入门</a></h3>
@@ -161,7 +161,7 @@
           </div>
         </article>
 
-        <article class="card post">
+        <article class="card post reveal">
           <div class="post-body">
             <time class="post-date" datetime="2026-08-12">2026-08-12</time>
             <h3 class="post-title"><a href="#">我的学习路线</a></h3>
@@ -177,32 +177,32 @@
       <h2 class="section-title">社交媒体 / 联系我 <span class="section-sub">Contact</span></h2>
       <p class="section-desc">想交流合作，或者只是打个招呼？欢迎通过以下方式找到我：</p>
       <div class="contact-grid">
-        <a class="contact-card" href="https://github.com/Chenxy-23" target="_blank" rel="noopener">
+        <a class="contact-card reveal" href="https://github.com/Chenxy-23" target="_blank" rel="noopener">
           <span class="contact-icon">🐙</span>
           <span class="contact-name">GitHub</span>
           <span class="contact-value">@Chenxy-23</span>
         </a>
-        <a class="contact-card" href="https://space.bilibili.com/" target="_blank" rel="noopener">
+        <a class="contact-card reveal" href="https://space.bilibili.com/" target="_blank" rel="noopener">
           <span class="contact-icon">🎬</span>
           <span class="contact-name">Bilibili</span>
           <span class="contact-value">替换成你的 UID</span>
         </a>
-        <a class="contact-card" href="#" target="_blank" rel="noopener">
+        <a class="contact-card reveal" href="#" target="_blank" rel="noopener">
           <span class="contact-icon">📱</span>
           <span class="contact-name">微博</span>
           <span class="contact-value">替换成你的主页</span>
         </a>
-        <a class="contact-card" href="#" target="_blank" rel="noopener">
+        <a class="contact-card reveal" href="#" target="_blank" rel="noopener">
           <span class="contact-icon">📕</span>
           <span class="contact-name">小红书</span>
           <span class="contact-value">替换成你的主页</span>
         </a>
-        <a class="contact-card" href="mailto:1920545756@qq.com">
+        <a class="contact-card reveal" href="mailto:1920545756@qq.com">
           <span class="contact-icon">✉️</span>
           <span class="contact-name">邮箱</span>
           <span class="contact-value">1920545756@qq.com</span>
         </a>
-        <a class="contact-card" href="#">
+        <a class="contact-card reveal" href="#">
           <span class="contact-icon">💬</span>
           <span class="contact-name">微信</span>
           <span class="contact-value">替换成你的微信号</span>
@@ -224,16 +224,30 @@
         <strong>三创赛 · 商务大数据分析实战赛 策划书（预览）</strong>
         <button class="modal-close" type="button" onclick="closePdfPreview()" aria-label="关闭预览">✕</button>
       </div>
-      <iframe class="pdf-frame" id="pdf-preview-frame" title="策划书预览" oncontextmenu="return false"></iframe>
+      <!-- 预留加载提示；iframe 首次打开时才创建，避免占位 -->
+      <div class="pdf-frame pdf-frame-loading" id="pdf-frame-loading">正在准备预览…</div>
+      <iframe class="pdf-frame" id="pdf-preview-frame" title="策划书预览" oncontextmenu="return false" hidden></iframe>
     </div>
   </div>
 
   <script>
     var pdfModal = document.getElementById('pdf-preview-modal');
     var pdfFrame = document.getElementById('pdf-preview-frame');
+    var pdfLoading = document.getElementById('pdf-frame-loading');
+    var pdfLoaded = false;
 
     function openPdfPreview() {
-      if (!pdfFrame.src) {
+      if (!pdfLoaded) {
+        // 首次打开才加载 iframe（懒加载），并显示过渡提示
+        pdfLoading.hidden = false;
+        pdfFrame.onload = function () {
+          pdfLoaded = true;
+          pdfLoading.hidden = true;
+          pdfFrame.hidden = false;
+        };
+        pdfFrame.onerror = function () {
+          pdfLoading.textContent = '预览加载失败，请稍后重试';
+        };
         pdfFrame.src = 'assets/projects/pdf-viewer.html';
       }
       pdfModal.classList.add('open');
@@ -258,6 +272,23 @@
         closePdfPreview();
       }
     });
+
+    // ===== 滚动进入动画 =====
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(function (el) { revealObserver.observe(el); });
+    } else {
+      // 旧浏览器直接全部显示
+      revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+    }
   </script>
 </body>
 </html>
